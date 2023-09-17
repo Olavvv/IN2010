@@ -16,17 +16,29 @@ def readDatasets(nDatasets):
     
     
 def sortDataset(dataset, datasetN):
-    sorted = dataset
+    sorted = []
     counter = 0
-    for i in range(len(sorted) - 1):
-        k = i
-        for j in range(i+1, len(sorted)):
-            if sorted[j] < sorted[k]:
-                k = j
-        if i != k:
-            counter += i
-            sorted[i], sorted[k] = sorted[k], sorted[i]
+    sorted.append(dataset[0])
+
+    k = 0
+    for data in dataset:
+        for i in range(0, k):
+            if (sorted[i] > data):
+                pushBack(sorted, i)
+        sorted.append(data)
+
+
+
+
+
+
+
     print(f"{sorted} {counter}")
+
+def pushBack(list, index):
+    counter = 0
+    returnList = [None]*len(list)
+    for i in range(index,len(list) - 1):
 
 readDatasets(ndatasets)
 
