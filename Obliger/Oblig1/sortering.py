@@ -9,12 +9,11 @@ def insertion_sort(A):
     return A
 
 def merge_sort(A):
-    print(A)
     if len(A) <= 1:
         return A
     i = math.floor((len(A)/2))
-    A1 = merge_sort(A[0:i-1])
-    A2 = merge_sort(A[i:-1])
+    A1 = merge_sort(A[:i])
+    A2 = merge_sort(A[i:])
     return merge(A, A1, A2)
 
 def merge(A, A1, A2):
@@ -27,7 +26,6 @@ def merge(A, A1, A2):
         else:
             A[i + j] = A2[j]
             j += 1
-        print(A)
     while (i < len(A1)):
         A[i + j] = A1[i]
         i += 1

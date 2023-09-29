@@ -16,6 +16,7 @@ class Teque:
     # Setter inn element 'x' i midten av Tequen.
     def push_middle(self, x):
         middle = math.floor( (len(self.teque) + 1)/2 )
+        print(middle)
         self.teque.insert(middle,x)
 
     # Printer ut elementet paa index 'i'.
