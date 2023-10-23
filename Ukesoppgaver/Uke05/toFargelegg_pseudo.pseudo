@@ -1,0 +1,43 @@
+
+Input: En sammenhendende graf G = (V, E)
+Output: En graf der nodene er fargelagt hvis det er mulig.
+
+Procedure TwoColor(G)
+
+    queue <- new Queue(s) # s er startnode
+
+    while stack not 0 do
+        visited <- []
+        BlaaNabo <- False
+        RoedNabo <- False
+
+        u <- queue.pop(0)
+        for nabo in u.naboer do
+            if nabo not in visited do
+                queue.append(nabo)
+                if nabo.color == R do
+                    RoedNabo <- True
+                end
+    
+                else if nabo.color == B do
+                    BlaaNabo <- False
+                end 
+
+            end
+        end
+
+        if BlaaNabo and RoedNabo do
+            print("Ikke mulig aa fargelegge.")
+        end
+        else if BlaaNabo do
+            u.color <- R
+        end
+        else if RoedNabo do
+            u.color <- B
+        end
+        else do
+            u.color <- B #Denne vil bare skje dersom vi jobber paa startnoden.
+        end
+
+        visited.append(u)
+    end
